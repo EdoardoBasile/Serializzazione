@@ -29,25 +29,29 @@ public class Serializzazione {
         try {
             FileOutputStream fo= new FileOutputStream("test.ser");
             ObjectOutputStream os=new ObjectOutputStream(fo);
-                os.writeObject("c");
-//                os.writeObject("ciao");
-//                os.writeObject(0.345);
+                os.writeObject(9);
+                os.writeObject("ciao");
+                os.writeObject((float)0.345);
 //                os.writeObject(false);
 //                os.writeObject('a');
             os.flush();
             os.close();
             fo.close();
-//              FileInputStream fi = new FileInputStream("test.ser");
-//              ObjectInputStream is= new ObjectInputStream(fi);
-//              int v1 = (int)is.readObject();
-//              String v2 = (String)is.readObject();
-//              System.out.println("21: "+v2);
-              
+              FileInputStream fi = new FileInputStream("test.ser");
+              ObjectInputStream is= new ObjectInputStream(fi);
+              int v1 = (int)is.readObject();
+              System.out.println("v1: "+v1);
+              String v2 = (String)is.readObject();
+              System.out.println("v2: "+v2);
+              Float v3 = (Float) is.readObject();
+              System.out.println("v3: "+v3);
 
         } catch (FileNotFoundException ex) {
             System.out.println("Impossibile trovare il file");
         } catch (IOException ex) {
             System.out.println("Hai rotto Java");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Serializzazione.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
