@@ -15,7 +15,7 @@ public class Serializzazione {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Studente io=new Studente("Edoardo", "basile", 7);
     }
     
 }
